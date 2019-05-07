@@ -1,3 +1,6 @@
+# Simulations illustrating the main result
+# of 'Exact Largest Eigenvalue Distribution for Doubly Singular Beta Ensemble'
+# https://arxiv.org/abs/1905.01774
 # Simulate CDF of lambda_max of doubly singular beta ensemble
 # and compare to the exact formula
 library(rootWishart)
@@ -36,11 +39,3 @@ DW<-doubleWishart(lval, p=q, n=m, m = p-m+q,  type = "multiple")
 # plot on the original scale:
 plot(ecdf(lmax), pch='.')
 points(lmax, DW, col='red', pch='.')
-
-
-
-
-
-
-
-
