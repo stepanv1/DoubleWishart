@@ -7,9 +7,9 @@ library(rootWishart)
 library(rWishart)
 library(corpcor)
 # set parameteres of doubly singular beta ensemble (DSB)
-p=120
+p=150
 m=100
-q=6
+q=35
 n=500
 #generate singular wishart matrices with Sigma = I_p
 A=rSingularWishart(n, m, diag(1, p))
@@ -39,3 +39,25 @@ DW<-doubleWishart(lval, p=q, n=m, m = p-m+q,  type = "multiple")
 # plot on the original scale:
 plot(ecdf(lmax), pch='.')
 points(lmax, DW, col='red', pch='.')
+
+# Tracy-Widom distribution
+hist(lmax,500)
+hist(lval,500)
+sqrt(150)
+library(RMTstat)
+# create Johstone TW approximation 
+pt = q
+nt = m
+mt = p-m+q 
+gamma <- 2*asin(sqrt((min(pt,nt)-0.5)/(mt+nt-1)))
+phi <- 2*asin(sqrt((max(pt,nt)-0.5 )/(mt+nt-1)))
+mu <- 2 * log(tan( 0.5*(phi+gamma)))
+sigma <- (16/(mt+nt-1)^2)^(1/3)*(sin(phi+gamma)^2*sin(phi)*sin(gamma))^((-1)*(1/3))
+Wp <- log(lval/(1-lval))
+Z1 <- (Wp - mu)/sigma
+TW <- ptw(Z1)
+plot(ecdf(Z1))
+points(Z1, TW, col='red', pch='.')
+
+
+
