@@ -1,4 +1,4 @@
 # DoubleWishart
 
-Simulations illustrating the main result  of 'Exact Largest Eigenvalue Distribution for Doubly Singular Beta Ensemble'
+Simulations illustrating the main result  of 'Largest Finite Root of Identity-Scale Doubly Singular Beta Type II Ensembles'
 https://arxiv.org/abs/1905.01774
