@@ -10,6 +10,7 @@
 # ============================================================================
 
 # --------------------------- editable settings -------------------------------
+library(rootWishartHD)
 REPO_DIR <- normalizePath(".", winslash = "/", mustWork = TRUE)
 FIG_DIR <- file.path(REPO_DIR, "figures")
 CACHE_DIR <- file.path(REPO_DIR, "figure_cache")
